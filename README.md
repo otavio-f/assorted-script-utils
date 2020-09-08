@@ -1,2 +1,2 @@
 # assorted-utils
-Some decorators for python programs
+Some decorators for python
