@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 
-"""This method contains decorators for parallelization and testing
+"""This module contains some decorators for parallelization and testing
 """
 __author__ = "Otavio Ferreira"
-__version__ = 0.01
 __status__ = "Prototype"
 
 import time
@@ -12,9 +11,7 @@ import threading
 THREAD_UPPER_LIMIT = 32
 
 def bench_out(func):
-	"""Decorator to benchmark execution time
-		Measures the time a function takes to execute
-	"""
+	"""Measure and print the time a function takes to execute."""
 	def wrap(*args, **kwargs):
 		start_time = time.time()
 		result = func(*args, **kwargs)
@@ -23,20 +20,15 @@ def bench_out(func):
 	return wrap
 
 def threaded_load(func):
-	"""Decorator for parallelization.
-		Executes the method in a separate thread. Keeps the active thread count
-		below the value specified in the variable THREAD_UPPER_LIMIT
-	"""
+	"""Execute in another thread, waits after THREAD_UPPER_LIMIT threads limit is exceeded."""
 	def wrap(*args, **kwargs):
 		while threading.active_count()>THREAD_UPPER_LIMIT:
-			time.sleep(0.001)
+			time.sleep(0.02)
 		threading.Thread(target=func, args=args).start()
 	return wrap
 
 def wait_all_threads(func):
-	"""Decorator for syncronization.
-		Waits for all threads to finish before the function exits
-	"""
+	"""Waits for all threads to finish before the function exits."""
 	def wrap(*args, **kwargs):
 		result = func(*args, **kwargs)
 		#print("\t*Waiting for threads to finish...")
