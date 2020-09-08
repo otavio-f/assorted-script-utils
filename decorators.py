@@ -9,6 +9,7 @@ import time
 import threading
 
 THREAD_UPPER_LIMIT = 32
+WAIT_TIME = 0.02
 
 def bench_out(func):
 	"""Measure and print the time a function takes to execute."""
@@ -20,10 +21,10 @@ def bench_out(func):
 	return wrap
 
 def threaded_load(func):
-	"""Execute in another thread, waits after THREAD_UPPER_LIMIT threads limit is exceeded."""
+	"""Execute in another thread, waits WAIT_TIME secs after THREAD_UPPER_LIMIT threads limit is exceeded."""
 	def wrap(*args, **kwargs):
 		while threading.active_count()>THREAD_UPPER_LIMIT:
-			time.sleep(0.02)
+			time.sleep(WAIT_TIME)
 		threading.Thread(target=func, args=args).start()
 	return wrap
 
