@@ -1,9 +1,12 @@
 # assorted-utils
-Some decorators for python
+Some ~~incomplete~~ python decorators
 
-Construction and learning in progress
+***Personal use: ~~Can~~ Will contain bugs***
 
-> Threading example
+***Coding and learning in progress***
+
+
+### ```@threaded_load``` and ```@wait_all_threads```
 - Each method call will execute in a separate thread
 - The sync method only returns after all extra threads have finished
 ```python
@@ -19,7 +22,8 @@ def sync_method(large_iterable):
         manipulate(i)
 ```
 
-> Bench example
+
+### ```@bench_out```
 - Print execution time
 ```python
 @bench_out
@@ -30,7 +34,8 @@ def method_i_want_to_measure():
     return some_result
 ```
 
-> Test example
+
+### ```@test```
 - Print some info about assertion success, fail or error
 ```python
 def prepare():
