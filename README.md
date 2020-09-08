@@ -9,6 +9,7 @@ Some python decorators
 ### ```@threaded_load``` and ```@wait_all_threads```
 - Each method call will execute in a separate thread
 - ```sync_method``` only returns after all extra threads have finished
+- Note: methods with ```@threaded_load``` ***will return nothing***
 ```python
 from decorators import *
 
