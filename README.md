@@ -1,5 +1,5 @@
 # assorted-script-utils
-Some python decorators made
+Some python decorators
 
 ***Personal use: ~~Can~~ Will contain bugs***
 
