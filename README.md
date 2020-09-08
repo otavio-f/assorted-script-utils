@@ -1,5 +1,5 @@
-# assorted-utils
-Some ~~incomplete~~ python decorators
+# assorted-script-utils
+Some python decorators made
 
 ***Personal use: ~~Can~~ Will contain bugs***
 
@@ -8,7 +8,7 @@ Some ~~incomplete~~ python decorators
 
 ### ```@threaded_load``` and ```@wait_all_threads```
 - Each method call will execute in a separate thread
-- The sync method only returns after all extra threads have finished
+- ```sync_method``` only returns after all extra threads have finished
 ```python
 from decorators import *
 
