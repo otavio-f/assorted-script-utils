@@ -1,21 +1,23 @@
 # assorted-script-utils
 Some python decorators
 
-***Personal use: ~~Can~~ Will contain bugs***
+### Warnings
+***~~Can~~ Will contain bugs***
+
+***This was made as a exercise on python decorators and development with git***
 
 ***Coding and learning in progress***
-
 
 ### ```@threaded_load``` and ```@wait_all_threads```
 - Each method call will execute in a separate thread
 - ```sync_method``` only returns after all extra threads have finished
-- Note: methods with ```@threaded_load``` ***will return nothing***
+- Note: ```@threaded_load``` ***cannot return***, so any method using it will not return as well
 ```python
 from decorators import *
 
 @threaded_load
-def manipulate(i):
-    do_something_with(i)
+def do_something(i):
+    pass #work on i
 
 @wait_all_threads
 def sync_method(large_iterable):
