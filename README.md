@@ -1,5 +1,5 @@
 # assorted-script-utils
-Some python decorators
+Some python utilities
 
 ### Warnings
 ***~~Can~~ Will contain bugs***
