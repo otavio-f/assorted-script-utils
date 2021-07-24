@@ -1,0 +1,12 @@
+import itertools
+
+def comb_no_dup(in_lst, n=3):
+    """Gera combinações de tamanho n..2 sem pares repetidos."""
+    done_pairs = []
+    for size in range(n,1,-1): #<- De n..2
+        for comb in itertools.combinations(in_lst, size):
+            pairs = list(itertools.combinations(comb,2))
+            if all(i not in done_pairs for i in pairs):
+                done_pairs += pairs
+                yield comb
+        
