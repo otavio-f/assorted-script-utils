@@ -1,8 +1,7 @@
 # assorted-script-utils
 Some python utilities
 
-### Warnings
-***~~Can~~ Will contain bugs***
+***Warning! Can contain bugs***
 
 ***This was made as a exercise on python decorators and development with git***
 
@@ -11,7 +10,7 @@ Some python utilities
 ### ```@threaded_load``` and ```@wait_all_threads```
 - Each method call will execute in a separate thread
 - ```sync_method``` only returns after all extra threads have finished
-- Note: ```@threaded_load``` ***cannot return***, so any method using it will not return as well
+- Note: ```@threaded_load``` ***returns None***, so any method using it will return None as well
 ```python
 from decorators import *
 
@@ -22,7 +21,7 @@ def do_something(i):
 @wait_all_threads
 def sync_method(large_iterable):
     for i in large_iterable:
-        manipulate(i)
+        process(i)
 ```
 
 
